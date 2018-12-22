@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_plugin_wptest (0.0.1):
+    - Flutter
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+    - flutter_plugin_wptest
+
+DEPENDENCIES:
+  - Flutter (from `/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/engine`)
+  - flutter_plugin_wptest (from `/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/.symlinks/flutter_plugin_wptest/ios`)
+  - FlutterPluginRegistrant (from `/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/FlutterPluginRegistrant`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: "/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/engine"
+  flutter_plugin_wptest:
+    :path: "/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/.symlinks/flutter_plugin_wptest/ios"
+  FlutterPluginRegistrant:
+    :path: "/Users/wangpeng/dev/FlutterForiOS/my_flutter/.ios/Flutter/FlutterPluginRegistrant"
+
+SPEC CHECKSUMS:
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  flutter_plugin_wptest: 5d68906dcc53d26b7f80eb04ec8cc9d5be7cb806
+  FlutterPluginRegistrant: 9a1cacc820ccfa41748a6cfd1be2b0c2b5e33489
+
+PODFILE CHECKSUM: 953f67155f3401e9447a441382b94d11c58166c8
+
+COCOAPODS: 1.5.3

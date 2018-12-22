@@ -1,0 +1,8 @@
+platform :ios, '9.0'
+
+target 'FlutterForiOSTest' do
+
+flutter_application_path = '/Users/wangpeng/dev/FlutterForiOS/my_flutter/'
+eval(File.read(File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')), binding)
+
+end
