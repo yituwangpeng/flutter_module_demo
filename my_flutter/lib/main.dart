@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_plugin_wptest/flutter_plugin_wptest.dart';
+import 'dart:io';
+import 'dart:typed_data';
 
 void main() => runApp(MyApp());
 
@@ -46,6 +48,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  Uint8List  _imageByte;
+
   static const methodChannel = const MethodChannel('com.pages.your/native_get');
 
   void _incrementCounter() {
@@ -91,6 +95,27 @@ class _MyHomePageState extends State<MyHomePage> {
         }
       });
     }
+
+  static const messageChannel = const BasicMessageChannel('com.pages.your/getAsset',const StandardMessageCodec());
+  // 从客户端读取图片
+  Future<Null> _getNativeImage() async {
+    Uint8List imageByte;
+    try {
+      final Uint8List result = await messageChannel.send('123.png');
+      imageByte = result;
+    } on PlatformException {
+    }
+    setState(() {
+      _imageByte = imageByte;
+    });
+//    return imageByte;
+  }
+
+  @override
+  void initState() {
+    _getNativeImage();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +164,16 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () => FlutterPluginWptest.alert(
                   'Toast from Flutter', ToastDuration.short
               ),
+            ),
+            Image(
+              image: _imageByte == null ? AssetImage("123.png") : MemoryImage(_imageByte),
+              width: 150.0,
+              height: 150.0,
+            ),
+            RaisedButton(
+              child: Text('load image'),
+              // 插件的使用跟其他库没有什么区别，直接调用即可
+              onPressed: _getNativeImage,
             ),
           ],
         ),

@@ -56,6 +56,17 @@
         }
     }];
     
+    // basicMessageChannel
+    FlutterBasicMessageChannel *basicMessageChannel = [FlutterBasicMessageChannel messageChannelWithName:@"com.pages.your/getAsset"
+                                                             binaryMessenger:flutterViewController
+                                                                       codec:[FlutterStandardMessageCodec sharedInstance]];
+    [basicMessageChannel setMessageHandler:^(id message, FlutterReply reply) {
+        NSLog(@"message ==%@",message);
+        UIImage *image = [UIImage imageNamed:@"image_empty_AddOn"];
+        NSData *imagedata = UIImagePNGRepresentation(image);
+        reply(imagedata);
+    }];
+    
     [self presentViewController:flutterViewController animated:false completion:nil];
 }
 
