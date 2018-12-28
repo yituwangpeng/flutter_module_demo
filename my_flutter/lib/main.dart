@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<Null> _getNativeImage() async {
     Uint8List imageByte;
     try {
-      final Uint8List result = await messageChannel.send('123.png');
+      final Uint8List result = await messageChannel.send('image_end');
       imageByte = result;
     } on PlatformException {
     }

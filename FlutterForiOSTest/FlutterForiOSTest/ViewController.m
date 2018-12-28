@@ -62,7 +62,7 @@
                                                                        codec:[FlutterStandardMessageCodec sharedInstance]];
     [basicMessageChannel setMessageHandler:^(id message, FlutterReply reply) {
         NSLog(@"message ==%@",message);
-        UIImage *image = [UIImage imageNamed:@"image_empty_AddOn"];
+        UIImage *image = [UIImage imageNamed:message];
         NSData *imagedata = UIImagePNGRepresentation(image);
         reply(imagedata);
     }];
